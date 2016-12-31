@@ -1,13 +1,16 @@
-class PairFactory
-
-  attr_reader :participants
+# frozen_string_literal: true
+class Scheduler
 
   def initialize(participants)
+    unless participants.size.positive?
+      raise ArgumentError, "Must provide at least one participant"
+    end
+
     @participants = participants
     @participants.push(nil) if participants.size.odd?
   end
 
-  def build
+  def schedule
     n = participants.size
     pivot = participants.pop
 
@@ -20,4 +23,8 @@ class PairFactory
 
     pairings
   end
+
+  private
+
+  attr_reader :participants
 end
