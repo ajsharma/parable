@@ -1,0 +1,14 @@
+*.sublime-project
+*.sublime-workspace
+*.~
+*~
+.bundle
+.DS_Store
+.env.local
+.vimrc
+
+Vagrantfile
+.vagrant/
+/cookbooks/
+
+coverage/
