@@ -9,6 +9,7 @@
 
 Vagrantfile
 .vagrant/
-/cookbooks/
 
 coverage/
+
+tmp/*
