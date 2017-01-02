@@ -13,3 +13,4 @@ Vagrantfile
 coverage/
 
 tmp/*
+parable.csv
