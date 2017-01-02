@@ -1,30 +1,31 @@
 # frozen_string_literal: true
 class Scheduler
 
-  def initialize(participants)
-    unless participants.size.positive?
-      raise ArgumentError, "Must provide at least one participant"
+  def initialize(pairs)
+    unless pairs.size.positive?
+      raise ArgumentError, "Must provide at least one pairing"
     end
 
-    @participants = participants
-    @participants.push(nil) if participants.size.odd?
+    @pairs = pairs
   end
 
   def schedule
-    n = participants.size
-    pivot = participants.pop
+    current_schedule = []
+    remaining_pairs = pairs.dup
 
-    pairings = (n - 1).times.map do
-      participants.rotate!
-      [[participants.first, pivot]] + (1...(n / 2)).map { |j| [participants[j], participants[n - 1 - j]] }
+    until remaining_pairs.size.zero?
+      current_pairing = remaining_pairs.pop
+      current_schedule << current_pairing
+
+      remaining_pairs.reject! do |pairing|
+        pairing.overlaps?(current_pairing)
+      end
     end
 
-    participants.push pivot unless pivot.nil?
-
-    pairings
+    current_schedule
   end
 
   private
 
-  attr_reader :participants
+  attr_reader :pairs
 end
