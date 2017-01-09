@@ -43,4 +43,5 @@ end
 group :test do
   gem "codecov", require: false
   gem "rspec", "~> 3.2"
+  gem "rspec-rails", "~> 3.5"
 end
