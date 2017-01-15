@@ -1,14 +1,12 @@
-require 'rails_helper'
-
+# frozen_string_literal: true
 RSpec.describe Participant, type: :model do
 end
 
 RSpec.describe Participant, "#name" do
-
-  def validation_errors_for name
-    participant = described_class.new( name: name )
+  def validation_errors_for(name)
+    participant = described_class.new(name: name)
     participant.valid?
-    participant.errors[ :name ]
+    participant.errors[:name]
   end
 
   [
@@ -17,8 +15,8 @@ RSpec.describe Participant, "#name" do
     "nil",
     "Timothy O'Neill",
   ].each do |name|
-    it "#{ name } should be valid" do
-      expect( validation_errors_for( name ) ).to be_empty
+    it "#{name} should be valid" do
+      expect(validation_errors_for(name)).to be_empty
     end
   end
 
@@ -26,8 +24,8 @@ RSpec.describe Participant, "#name" do
     nil,
     ("a" * 300),
   ].each do |name|
-    it "#{ name } should not be valid" do
-      expect( validation_errors_for( name ) ).not_to be_empty
+    it "#{name} should not be valid" do
+      expect(validation_errors_for(name)).not_to be_empty
     end
   end
 end

@@ -1,5 +1,8 @@
+# frozen_string_literal: true
 class Participant < ApplicationRecord
-  validates :name,
+  validates(
+    :name,
     length: { maximum: 255 },
     presence: true
+  )
 end
