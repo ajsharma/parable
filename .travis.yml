@@ -1,9 +1,11 @@
 addons:
-  postgresql: 9.4
+  postgresql: 9.5
 
 before_script:
 - psql -c 'create database parable_test;' -U postgres
 - bundle exec rake db:test:load
+
+dist: trusty
 
 script: bundle exec rspec spec
 
