@@ -26,7 +26,7 @@ RSpec.describe Participant, "#name" do
     nil,
     ("a" * 300),
   ].each do |name|
-    it "#{ name } should be invalid" do
+    it "#{ name } should not be valid" do
       expect( validation_errors_for( name ) ).not_to be_empty
     end
   end
