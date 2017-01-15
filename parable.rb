@@ -1,11 +1,10 @@
 # frozen_string_literal: true
-require File.expand_path('../config/boot', __FILE__)
 require "thor"
 
 class Parable < Thor
   desc "init", "starts building the CSV of your team"
   def init
-    database = CSVDatabase.new
+
 
     names = []
     loop do
@@ -26,9 +25,7 @@ class Parable < Thor
 
   desc "schedule", "builds a schedule based on the provided CSV"
   def schedule
-    # Load in CSV
-    # Generate pairs
-    csv = CSV.foreach(CSV_FILE_NAME)
+    # TODO:
   end
 end
 
