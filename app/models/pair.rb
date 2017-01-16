@@ -12,15 +12,7 @@ class Pair
   end
 
   def initialize(participant, other_participant)
-    @objects = [participant, other_participant]
-  end
-
-  def first_object
-    objects[0]
-  end
-
-  def second_object
-    objects[1]
+    self.objects = [participant, other_participant]
   end
 
   def <=>(other)
