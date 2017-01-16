@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 module Parable
   class ParticipantsCommand < ApplicationCommand
-
     desc "create", "adds new members to your team"
     def create
       loop do
@@ -10,12 +9,15 @@ module Parable
         name = STDIN.gets.chomp
         break if name.empty?
 
-        participant = Participant.new( name: name )
+        participant = Participant.new(name: name)
 
         if participant.save
           puts "Participant saved"
         else
-          puts "Participant was invalid #{participant.errors.full_messages.to_sentence}"
+          puts <<-RESPONSE.heredoc.squish
+            Participant was invalid
+            #{participant.errors.full_messages.to_sentence}"
+          RESPONSE
         end
 
         puts
