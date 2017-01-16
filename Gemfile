@@ -21,6 +21,7 @@ gem 'puma', '~> 3.0'
 
 # Use thor for CLI
 gem "thor"
+gem "thor-rails"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
