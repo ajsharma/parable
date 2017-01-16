@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-require "./app/models/pair"
-
 RSpec.describe Pair, ".build_combinations" do
   let(:mo) { "Mo" }
   let(:mary) { "Mary" }

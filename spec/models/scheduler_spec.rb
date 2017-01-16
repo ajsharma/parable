@@ -1,7 +1,4 @@
 # frozen_string_literal: true
-require "./app/models/pair"
-require "./app/models/scheduler"
-
 RSpec.describe Scheduler, ".initialize" do
   let(:mo) { "Mo" }
   let(:mary) { "Mary" }
