@@ -1,5 +1,12 @@
 # frozen_string_literal: true
 class ParticipantsCommand < ApplicationCommand
+  desc "index", "lists all the members of your team"
+  def index
+    Participant.order(name: :asc).pluck(:name).each do |name|
+      puts name
+    end
+  end
+
   desc "create", "adds new members to your team"
   def create
     loop do
